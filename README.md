@@ -1,31 +1,21 @@
-# RepositorioTemplate
-Esse repositório é para ser utilizado pelos grupos como um template inicial, da home page do Projeto.
-As seções do Template NÃO DEVEM SER OMITIDAS, sendo TODAS RELEVANTES.
-
-**!! *Atenção: Renomeie o seu repositório para (Ano.Semestre)_(Grupo)_(Paradigma)_(NomeDoProjeto)*. !!** 
-
-Paradigmas:
- - Funcional
- - Logico
- - SMA
-
-**!! *Não coloque os nomes dos alunos no título do repositório*. !!**
-
-**!! *Exemplo de título correto: 2022.2_G1_Logico_ProjetoRoteirosAereos*. !!**
- 
- (Apague esses comentários)
-
-# NomeDoProjeto
+# Termo
 
 **Disciplina**: FGA0210 - PARADIGMAS DE PROGRAMAÇÃO - T01 <br>
-**Nro do Grupo (de acordo com a Planilha de Divisão dos Grupos)**: XX<br>
-**Paradigma**: XXXXXXXXXX<br>
+**Nro do Grupo (de acordo com a Planilha de Divisão dos Grupos)**: 4<br>
+**Paradigma**: Funcional<br>
 
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 20/0014447  |  André Corrêa da Silva |
+| 19/0012200  |  Douglas da Silva Monteles |
+| 18/0015834  |  Eliseu Kadesh Rosa Assunção Jr. |
+| 20/0030469  |  Felipe Candido de Moura |
+| 20/0018167  |  Gabriel Mariano da Silva |
+| 19/0089601  |  João Lucas Pinto Vasconcelos |
+| 15/0141629  |  Matheus Pimentel Leal |
+| 19/0036940  |  Rafael Fernandes Amancio |
+| 19/0038926  |  Victor Eduardo Araújo Ribeiro |
 
 ## Sobre 
 Descreva o seu projeto em linhas gerais. 
@@ -36,8 +26,8 @@ Capriche nessa seção, pois ela é a primeira a ser lida pelos interessados no 
 Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
 
 ## Instalação 
-**Linguagens**: xxxxxx<br>
-**Tecnologias**: xxxxxx<br>
+**Linguagens**: Haskell<br>
+**Tecnologias**: Stack<br>
 Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
 Insira um manual ou um script para auxiliar ainda mais.
 Gifs animados e outras ilustrações são bem-vindos!
@@ -61,7 +51,15 @@ TEMPO: +/- 15min
 Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 |Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) |
 | -- | -- | -- |
-| Fulano  |  Programação dos Fatos da Base de Conhecimento Lógica | Boa |
+| André Corrêa da Silva | XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX |  X  |
+| Douglas da Silva Monteles | XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX |  X  |
+| Eliseu Kadesh Rosa Assunção Jr. | XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX |  X  |
+| Felipe Candido de Moura | XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX |  X  |
+| Gabriel Mariano da Silva | XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX |  X  |
+| João Lucas Pinto Vasconcelos | XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX |  X  |
+| Matheus Pimentel Leal | XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX |  X  |
+| Rafael Fernandes Amancio | XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX |  X  |
+| Victor Eduardo Araújo Ribeiro | XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX |  X  |
 
 ## Outros 
 Quaisquer outras informações sobre o projeto podem ser descritas aqui. Não esqueça, entretanto, de informar sobre:
