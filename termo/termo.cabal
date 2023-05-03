@@ -26,6 +26,9 @@ source-repository head
 library
   exposed-modules:
       Lib
+      GameManager
+      Input
+      Validators
   other-modules:
       Paths_termo
   hs-source-dirs:
