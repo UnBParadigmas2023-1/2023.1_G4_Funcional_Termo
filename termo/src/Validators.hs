@@ -10,10 +10,6 @@ module Validators
 
 import Data.List (intersect, nub)
 import Network.HTTP.Simple
-import qualified Data.ByteString.Char8 as BS
-import qualified Data.ByteString.Lazy.Char8 as BLC
-import Network.HTTP.Simple
-import qualified Data.ByteString.Char8 as BS
 import qualified Data.ByteString.Lazy.Char8 as BLC
 
 isSameString :: String -> String -> Bool
@@ -21,8 +17,6 @@ isSameString str1 str2
     | isLengthCorrect str1  == False   = False
     | otherwise                        = str1 == str2
 
-isLengthCorrect :: String -> Bool
-isLengthCorrect str = length str == 5
 isLengthCorrect :: String -> Bool
 isLengthCorrect str = length str == 5
 
