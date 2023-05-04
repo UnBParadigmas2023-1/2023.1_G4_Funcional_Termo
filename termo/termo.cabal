@@ -29,6 +29,7 @@ library
       Input
       Lib
       Validators
+      Menu
   other-modules:
       Paths_termo
   hs-source-dirs:
