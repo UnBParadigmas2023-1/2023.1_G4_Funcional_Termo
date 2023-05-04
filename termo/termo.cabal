@@ -29,6 +29,7 @@ library
       GameManager
       Input
       Validators
+      Menu
   other-modules:
       Paths_termo
   hs-source-dirs:

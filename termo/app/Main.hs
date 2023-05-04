@@ -1,15 +1,30 @@
 module Main (main) where
 
 import Lib()
-import GameManager(
-  initGame
-  )
+import Input(
+    readString
+    )
+import Menu(
+    menu
+    )
 
 main :: IO ()
 main = do
-  putStrLn "A palavra de hoje tem 6 letras:"
-  putStrLn "_ _ _ _ _ _"
-  putStrLn ""
+  putStrLn "BEM-VINDO AO"
 
-  
-  initGame "teste" 1
+  putStrLn "    ███        ▄████████    ▄████████   ▄▄▄▄███▄▄▄▄    ▄██████▄  "
+  putStrLn "▀█████████▄   ███    ███   ███    ███ ▄██▀▀▀███▀▀▀██▄ ███    ███ "
+  putStrLn "   ▀███▀▀██   ███    █▀    ███    ███ ███   ███   ███ ███    ███ "
+  putStrLn "    ███   ▀  ▄███▄▄▄      ▄███▄▄▄▄██▀ ███   ███   ███ ███    ███ "
+  putStrLn "    ███     ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ███   ███   ███ ███    ███ "
+  putStrLn "    ███       ███    █▄  ▀███████████ ███   ███   ███ ███    ███ "
+  putStrLn "    ███       ███    ███   ███    ███ ███   ███   ███ ███    ███ "
+  putStrLn "   ▄████▀     ██████████   ███    ███  ▀█   ███   █▀   ▀██████▀  "
+  putStrLn "                           ███    ███                            "
+  putStrLn ""
+  putStrLn "pressione enter para continuar..."
+  readString
+
+  putStrLn "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+
+  menu
