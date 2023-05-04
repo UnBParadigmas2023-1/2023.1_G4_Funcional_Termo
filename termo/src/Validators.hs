@@ -4,18 +4,21 @@ module Validators
       isAnyWordInRightPlace,
       isAnyWordInWrongPlace,
       obtainIndexesOfSameLetter,
-      obtainLettersInWrongPlace
+      obtainLettersInWrongPlace,
+      validWord
     ) where
 
 import Data.List (intersect, nub)
+import Network.HTTP.Simple
+import qualified Data.ByteString.Lazy.Char8 as BLC
 
 isSameString :: String -> String -> Bool
 isSameString str1 str2 
-    | isLengthCorrect str1 str2  == False   = False
-    | otherwise                             = str1 == str2
+    | isLengthCorrect str1  == False   = False
+    | otherwise                        = str1 == str2
 
-isLengthCorrect :: String -> String -> Bool
-isLengthCorrect word answer = strLength word == strLength answer
+isLengthCorrect :: String -> Bool
+isLengthCorrect str = length str == 5
 
 isAnyWordInRightPlace :: String -> String -> Bool
 isAnyWordInRightPlace word answer = any (== True) (zipWith (==) word answer)
@@ -31,6 +34,12 @@ obtainIndexesOfSameLetter word answer =
 obtainLettersInWrongPlace :: String -> String -> [Char]
 obtainLettersInWrongPlace word answer = intersect (nub word) (nub answer)
 
-strLength :: [Char] -> Int
-strLength [] = 0
-strLength (_:xs) = 1 + strLength xs
+validWord :: String -> IO Bool
+validWord word = do
+  let url = "https://dicio-api-ten.vercel.app/v2/" ++ word
+  request <- parseRequest url
+  response <- httpLBS request
+  let responseBody = getResponseBody response
+  if responseBody == BLC.pack "{\"error\":\"Could not get word info\"}"
+    then return False
+    else return True

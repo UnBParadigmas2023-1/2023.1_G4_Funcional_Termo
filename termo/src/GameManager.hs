@@ -14,20 +14,30 @@ import Validators (
     isAnyWordInRightPlace,
     isAnyWordInWrongPlace,
     obtainIndexesOfSameLetter,
-    obtainLettersInWrongPlace
+    obtainLettersInWrongPlace,
+    validWord
     )
 
 initGame :: String -> Int -> IO ()
 initGame answer attempts = 
     do 
         putStrLn $ "Tentativa: [" ++ (show attempts) ++ "]"
-        putStrLn "Digite seu palpite (com 6 letras):"
+        putStrLn "Digite seu palpite (com 5 letras):"
         word <- readString
         putStrLn "A palavra digitada foi:"
         putStrLn word
-        putStrLn "A palavra digitada tem o mesmo tamanho da palavra correta?"
-        
-        if isLengthCorrect word answer 
+
+        putStrLn "A palavra digitada existe?"
+        value <- validWord word
+        if value == True
+            then do 
+                putStrLn "Existe!"
+            else do
+                putStrLn "Não existe!"
+                initGame answer (attempts + 0)
+
+        putStrLn "A palavra digitada tem o mesmo tamanho da palavra correta?"        
+        if isLengthCorrect word 
             then do
                 putStrLn "Sim!"
             else do
