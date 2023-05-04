@@ -18,9 +18,7 @@
 | 19/0038926  |  Victor Eduardo Araújo Ribeiro |
 
 ## Sobre 
-Descreva o seu projeto em linhas gerais. 
-Use referências, links, que permitam conhecer um pouco mais sobre o projeto.
-Capriche nessa seção, pois ela é a primeira a ser lida pelos interessados no projeto.
+Implementação do jogo [Termo](https://term.ooo) em Haskell, na qual deve-se acertar a palavra em até seis tentativas. Após cada tentativa o jogo indica as letras nos lugares corretos, em lugar incorreto e que não fazem parte da palavra.
 
 ## Screenshots
 Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
@@ -31,6 +29,7 @@ Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcioname
 Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
 Insira um manual ou um script para auxiliar ainda mais.
 Gifs animados e outras ilustrações são bem-vindos!
+
 
 ## Uso 
 Explique como usar seu projeto.
