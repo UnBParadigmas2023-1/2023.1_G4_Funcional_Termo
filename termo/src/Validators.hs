@@ -5,7 +5,9 @@ module Validators
       isAnyWordInWrongPlace,
       obtainIndexesOfSameLetter,
       obtainLettersInWrongPlace,
-      validWord
+      validWord,
+      sameLetterIndices,
+      subtractOne
     ) where
 
 import Data.List (intersect, nub)
@@ -43,3 +45,13 @@ validWord word = do
   if responseBody == BLC.pack "{\"error\":\"Could not get word info\"}"
     then return False
     else return True
+
+sameLetterIndices :: String -> String -> [Int]
+sameLetterIndices s1 s2 =
+  let indexedChars1 = zip [1..] s1
+      indexedChars2 = zip [1..] s2
+      sameChars = filter (\(i1, c1) -> any (\(i2, c2) -> c1 == c2 && i1 /= i2) indexedChars2) indexedChars1
+  in map (\(i, _) -> i) sameChars
+
+subtractOne :: [Int] -> [Int]
+subtractOne xs = map (\x -> x - 1) xs
