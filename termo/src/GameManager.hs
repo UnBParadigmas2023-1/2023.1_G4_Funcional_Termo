@@ -18,6 +18,7 @@ import Validators (
     validWord
     )
 
+
 initGame :: String -> Int -> IO ()
 initGame answer attempts =
     do
@@ -60,10 +61,9 @@ initGame answer attempts =
                     else do
                         putStrLn "Não há letras em comum"
                         initGame answer (attempts + 1)
-
-        putStrLn "A resposta correta é:"
-        putStrLn answer
-        exitWith ExitSuccess
+        putStrLn "Pressione enter para retornar ao menu!"
+        x <- getChar
+        putStr""
 
 displayAnswerSituation :: String -> [Int] -> IO ()
 displayAnswerSituation answer indexes =

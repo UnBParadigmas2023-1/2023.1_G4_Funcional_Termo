@@ -1,11 +1,11 @@
-module GameScore (createGameScore, saveGameScore, printScore, readScoreList) where
+module GameScore (createGameScore, saveGameScore, printCasualScore, readScoreList) where
 
 import System.Directory (doesFileExist)
 import System.IO
 
 createGameScore :: IO ()
 createGameScore = do
-  let fileName = "./files/GameScore.txt"
+  let fileName = "./src/files/GameScore.txt"
   fileExists <- doesFileExist fileName
 
   if not fileExists
@@ -17,7 +17,7 @@ createGameScore = do
 
 saveGameScore :: Int -> Int -> IO ()
 saveGameScore victory nAttempts = do
-  let fileName = "./files/GameScore.txt"
+  let fileName = "./src/files/GameScore.txt"
   let scoreSize = 3
 
   content <- readScoreList fileName
@@ -32,7 +32,7 @@ saveGameScore victory nAttempts = do
 
 printCasualScore :: IO ()
 printCasualScore = do
-  let fileName = "./files/GameScore.txt"
+  let fileName = "./src/files/GameScore.txt"
   let scoreSize = 3
 
   content <- readScoreList fileName

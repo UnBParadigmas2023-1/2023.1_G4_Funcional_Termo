@@ -13,6 +13,7 @@ import Menu
 
 main :: IO ()
 main = do
+  putStrLn "\ESC[2J"
   putStrLn "BEM-VINDO AO"
 
   putStrLn "    ███        ▄████████    ▄████████   ▄▄▄▄███▄▄▄▄    ▄██████▄  "
@@ -28,6 +29,6 @@ main = do
   putStrLn "pressione enter para continuar..."
   readString
 
-  putStrLn "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+  putStrLn "\ESC[2J"
   createGameScore
   menu

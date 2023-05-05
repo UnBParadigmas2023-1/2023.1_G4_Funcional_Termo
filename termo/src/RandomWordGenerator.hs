@@ -3,7 +3,6 @@ module RandomWordGenerator (
     selectRandomWord
   ) where
 
-import Data.Modular.Arithmetic
 import System.Random
 
 wordList :: [String]
@@ -11,11 +10,11 @@ wordList = ["termo", "suíte", "ávido", "festa", "bebia", "honra", "ouvir", "pe
 
 
 -- convertendo um valor do tipo MoInt em um valor do tipo Int
-intValue :: Int
-intValue = fromIntegral getStdRandom (randomR (0, length wordList - 1))
+selectRandomWord :: IO String
+selectRandomWord = do
+  index <- getStdRandom (randomR (0, length wordList - 1))
+  return (wordList !! index)
 
-selectRandomWord :: String
-selectRandomWord = take 5 (wordList !! getStdRandom (randomR (0, length wordList - 1))) 
 
 -- Exemplo de uso
 -- main :: IO ()

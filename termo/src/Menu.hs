@@ -9,8 +9,10 @@ import RandomWordGenerator(
   )
 
 import GameScore(
-  printScore
+  printCasualScore
   )
+
+import System.IO
 
 import Input(
     readString
@@ -19,6 +21,7 @@ import Input(
 menu :: IO ()
 menu =
     do
+        putStrLn "\ESC[2J"
         putStrLn "escolha a opção desejada:"
         putStrLn "1 - Jogar"
         putStrLn "2 - Estatisticas"
@@ -33,7 +36,8 @@ hub opt
     |opt == "1" = do
       word <- selectRandomWord
       initGame word 0
-    |opt == "2" = printScore
+      menu
+    |opt == "2" = printCasualScore 
     |opt == "3" = tuto
     |opt == "4" = exit
     |otherwise = menu
@@ -42,7 +46,7 @@ hub opt
 tuto :: IO ()
 tuto =
   do
-    putStrLn "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+    putStrLn "\ESC[2J"
     putStrLn "Descubra a palavra certa em no maximo \ESC[31m6 \ESC[0mtentativas\n"
     putStrLn "Depois de cada tentativa, o jogo informa o quão certa está a palavra"
     putStrLn "\n\t\ESC[32mT\ESC[0mURMA\n"
@@ -52,8 +56,11 @@ tuto =
     putStrLn "\n\tPUL\ESC[90mG\ESC[0mA\n"
     putStrLn "A letra \ESC[90mG \ESC[0mnão faz parte da palavra"
     putStrLn "\nAs palavras podem ter letras repetidas\n"
+    putStrLn "pressione enter para continuar..."
+    readString
     menu
 
 exit =
   do
+    putStrLn "\ESC[2J"
     putStrLn "\n\n\nSaindo..."
