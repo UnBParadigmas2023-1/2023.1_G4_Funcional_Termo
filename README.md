@@ -18,7 +18,11 @@
 | 19/0038926  |  Victor Eduardo Araújo Ribeiro |
 
 ## Sobre 
-Implementação do jogo [Termo](https://term.ooo) em Haskell, na qual deve-se acertar a palavra em até seis tentativas. Após cada tentativa o jogo indica as letras nos lugares corretos, em lugar incorreto e que não fazem parte da palavra.
+Implementação do jogo [Termo](https://term.ooo) em Haskell, na qual deve-se acertar a palavra em até seis tentativas.</br> Após cada tentativa o jogo indica as letras nos lugares corretos, nos lugares incorretos e que não fazem parte da palavra.
+
+Há também um sistema de estatísticas do jogador, na qual mostra quantidade de vitorias, número de jogos e a pontuação total.
+
+Também foi criado um tutorial dentro do jogo, ensinando como se joga.
 
 ## Screenshots
 Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
