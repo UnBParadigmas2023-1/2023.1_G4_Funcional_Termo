@@ -16,8 +16,7 @@ import Validators (
     isAnyWordInRightPlace,
     isAnyWordInWrongPlace,
     obtainIndexesOfSameLetter,
-    obtainLettersInWrongPlace,
-    validWord
+    obtainLettersInWrongPlace
     )
 
 
@@ -28,14 +27,6 @@ initGame answer attempts =
         putStrLn "Digite uma palavra:"
         word <- readString
 
-        value <- validWord word
-        if value
-            then do
-                putStr ""
-            else do
-                putStrLn "Palavra Invalida"
-                initGame answer (attempts + 0)
-
 
         if isLengthCorrect word
             then do
@@ -45,7 +36,9 @@ initGame answer attempts =
                 initGame answer (attempts + 0)
 
         if isSameString word answer
-            then putStrLn "Parabens você acertou!"
+            then do
+                putStrLn "Parabens você acertou!"
+                saveGameScore 1 attempts
             else do
                 if isAnyWordInRightPlace word answer
                     then do
@@ -63,7 +56,7 @@ initGame answer attempts =
                     else do
                         putStrLn "Não há letras em comum"
                         initGame answer (attempts + 1)
-        saveGameScore 1 attempts
+        
 
 
 displayAnswerSituation :: String -> [Int] -> IO ()

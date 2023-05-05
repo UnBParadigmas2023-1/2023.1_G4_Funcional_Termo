@@ -47,7 +47,7 @@ hub opt
     |opt == "1" = do
       putStrLn "\ESC[2J"
       word <- selectRandomWord
-      initGame "teste" 0
+      initGame word 0
       putStrLn "pressione enter para continuar..."
       readString
       menu
