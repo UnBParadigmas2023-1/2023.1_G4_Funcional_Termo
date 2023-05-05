@@ -2,11 +2,15 @@ module GameManager
     ( initGame
     ) where
 
+import System.Exit (exitWith, ExitCode(..))
+
 import Input(
     readString
     )
 
-import System.Exit (exitWith, ExitCode(..))
+import GameScore(
+  saveGameScore
+  )
 
 import Validators (
     isLengthCorrect,
@@ -16,71 +20,89 @@ import Validators (
     obtainIndexesOfSameLetter,
     obtainLettersInWrongPlace,
     validWord,
-    commonIndices
+    sameLetterIndices,
+    subtractOne
     )
 
 initGame :: String -> Int -> IO ()
-initGame answer attempts = 
-    do 
-        putStrLn $ "Tentativa: [" ++ (show attempts) ++ "]"
-        putStrLn "Digite seu palpite (com 5 letras):"
-        word <- readString
-        putStrLn "A palavra digitada foi:"
-        putStrLn word
-
-        putStrLn "A palavra digitada existe?"
-        value <- validWord word
-
-        if value == True
-            then do 
-                putStrLn "Existe!"
-            else do
-                putStrLn "Não existe!"
-                initGame answer (attempts + 0)
-
-        putStrLn "A palavra digitada tem o mesmo tamanho da palavra correta?"        
-        if isLengthCorrect word 
+initGame answer attempts =
+    do
+        if attempts == 6 
             then do
-                putStrLn "Sim!"
+                putStrLn "Você atingiu o limite de tentativas :("
+                putStrLn $ "A palavra correta era: " ++ answer
+
+                exitWith ExitSuccess
             else do
-                putStrLn "A palavra digitada não possui o mesmo tamanho da palavra a ser adivinhada! Tente novamente."
+                putStrLn ""
+
+        putStrLn $ "\nTentativa: [" ++ (show (attempts + 1)) ++ " de 6]"
+        putStrLn "Digite seu palpite:"
+        putStrLn "\n\n"
+
+        word <- readString
+        
+        -- value <- validWord word
+
+        if isLengthCorrect word
+            then do
+                putStr ""
+            else do
+                putStrLn "Palavra Invalida"
                 initGame answer (attempts + 0)
 
         if isSameString word answer
             then do
-                putStrLn "Acertou mizeravi!"
+                putStrLn "Parabéns você acertou!"
+                saveGameScore 1 attempts
             else do
                 if isAnyWordInRightPlace word answer
                     then do
-                        putStrLn "Há letras em comum nas mesmas posições!"
-                        putStrLn $ "As letras iguais estão nas posições: " ++ show (obtainIndexesOfSameLetter word answer)
-                        displayAnswerSituation answer (obtainIndexesOfSameLetter word answer)
+                        displayAnswerSituation word (obtainIndexesOfSameLetter word answer)
                     else do
-                        putStrLn "Não há letras em comum na mesma posição"
-                        -- initGame answer (attempts + 1)
+                        putStrLn ""
                 
-                if null (commonIndices word answer)
+                if null (sameLetterIndices word answer)
                     then do
-                        putStrLn "Não há letras em comum"
                         initGame answer (attempts + 1)
                     else do
-                        putStrLn "As letras em comum estão em posições diferentes!"
-                        putStrLn $ "As letras que estão no lugar errado são: " ++ (obtainLettersInWrongPlace (commonIndices word answer) answer)
+                        displayAnswerSituationWhenWrongPlace word (subtractOne (sameLetterIndices word answer))
                         initGame answer (attempts + 1)
 
-        putStrLn "A resposta correta é:"
-        putStrLn answer
-        exitWith ExitSuccess
 
 displayAnswerSituation :: String -> [Int] -> IO ()
-displayAnswerSituation answer indexes =
+displayAnswerSituation str indexes =
   do 
-    let chars = zip [0..] answer in
+    let chars = zip [0..] str in
         mapM_ (printIndexedChar indexes) chars;
     putStrLn ""
 
 printIndexedChar :: [Int] -> (Int, Char) -> IO ()
 printIndexedChar indexes (i, c) =
   if i `elem` indexes
-    then putChar c
-    else putChar '_'
+    then do
+        putStr "\ESC[92m"
+        putChar c
+
+        putStr "\ESC[0m "
+    else do
+        putChar c
+        putChar ' '
+
+displayAnswerSituationWhenWrongPlace :: String -> [Int] -> IO ()
+displayAnswerSituationWhenWrongPlace str indexes =
+  do 
+    let chars = zip [0..] str in
+        mapM_ (printIndexedCharInWrongPlace indexes) chars;
+    putStrLn ""
+
+printIndexedCharInWrongPlace :: [Int] -> (Int, Char) -> IO ()
+printIndexedCharInWrongPlace indexes (i, c) =
+  if i `elem` indexes
+    then do
+        putStr "\ESC[33m"
+        putChar c
+        putStr "\ESC[0m "
+    else do
+        putChar c
+        putChar ' '

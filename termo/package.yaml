@@ -25,6 +25,7 @@ dependencies:
 - random
 - bytestring
 - http-conduit
+- arithmoi
 
 ghc-options:
 - -Wall
