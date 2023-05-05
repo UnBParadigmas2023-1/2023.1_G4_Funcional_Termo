@@ -4,6 +4,6 @@ WORKDIR /termo_project
 
 COPY . .
 
-RUN stack build --install-ghc http-conduit
+RUN stack build --install-ghc
 
 ENTRYPOINT ["stack","exec","termo-exe"]
