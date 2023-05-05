@@ -22,6 +22,17 @@ menu :: IO ()
 menu =
     do
         putStrLn "\ESC[2J"
+        putStrLn "    ███        ▄████████    ▄████████   ▄▄▄▄███▄▄▄▄    ▄██████▄  "
+        putStrLn "▀█████████▄   ███    ███   ███    ███ ▄██▀▀▀███▀▀▀██▄ ███    ███ "
+        putStrLn "   ▀███▀▀██   ███    █▀    ███    ███ ███   ███   ███ ███    ███ "
+        putStrLn "    ███   ▀  ▄███▄▄▄      ▄███▄▄▄▄██▀ ███   ███   ███ ███    ███ "
+        putStrLn "    ███     ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ███   ███   ███ ███    ███ "
+        putStrLn "    ███       ███    █▄  ▀███████████ ███   ███   ███ ███    ███ "
+        putStrLn "    ███       ███    ███   ███    ███ ███   ███   ███ ███    ███ "
+        putStrLn "   ▄████▀     ██████████   ███    ███  ▀█   ███   █▀   ▀██████▀  "
+        putStrLn "                           ███    ███                            "
+        putStrLn"\n\n"
+
         putStrLn "escolha a opção desejada:"
         putStrLn "1 - Jogar"
         putStrLn "2 - Estatisticas"
@@ -36,7 +47,9 @@ hub opt
     |opt == "1" = do
       putStrLn "\ESC[2J"
       word <- selectRandomWord
-      initGame word 0
+      initGame "teste" 0
+      putStrLn "pressione enter para continuar..."
+      readString
       menu
     |opt == "2" = do
                     putStrLn "\ESC[2J"

@@ -6,7 +6,9 @@ import Input(
     readString
     )
 
-import System.Exit (exitWith, ExitCode(..))
+import GameScore(
+  saveGameScore
+  )
 
 import Validators (
     isLengthCorrect,
@@ -61,9 +63,8 @@ initGame answer attempts =
                     else do
                         putStrLn "Não há letras em comum"
                         initGame answer (attempts + 1)
-        putStrLn "Pressione enter para retornar ao menu!"
-        x <- getChar
-        putStr""
+        saveGameScore 1 attempts
+
 
 displayAnswerSituation :: String -> [Int] -> IO ()
 displayAnswerSituation answer indexes =
