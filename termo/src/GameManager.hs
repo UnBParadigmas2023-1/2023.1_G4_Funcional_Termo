@@ -47,7 +47,7 @@ initGame answer attempts =
                     then do
                         putStr ""
                     else do
-                        putStrLn "Palavra Invalida"
+                        putStrLn "Palavra com tamanho Invalido, deve ter exatamente \ESC[91m5 \ESC[0mletras"
                         initGame answer (attempts + 0)
 
                 if isSameString word answer

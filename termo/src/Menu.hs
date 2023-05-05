@@ -68,7 +68,7 @@ tuto =
     putStrLn "\n\t\ESC[32mT\ESC[0mURMA\n"
     putStrLn "A letra \ESC[32mT \ESC[0mfaz parte da palavra e está no lugar correto"
     putStrLn "\n\t\ESC[0mVI\ESC[33mO\ESC[0mLA\n"
-    putStrLn "A letra \ESC[33mO \ESC[0mfaz parte da palavras mas esta no lugar errado"
+    putStrLn "A letra \ESC[33mO \ESC[0mfaz parte da palavra mas esta no lugar errado"
     putStrLn "\n\tPUL\ESC[90mG\ESC[0mA\n"
     putStrLn "A letra \ESC[90mG \ESC[0mnão faz parte da palavra"
     putStrLn "\nAs palavras podem ter letras repetidas\n"
