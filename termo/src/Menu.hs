@@ -3,12 +3,21 @@ module Menu (menu) where
 import GameManager(
   initGame
   )
+
+import RandomWordGenerator(
+  selectRandomWord
+  )
+
+import GameScore(
+  printScore
+  )
+
 import Input(
     readString
     )
 
 menu :: IO ()
-menu = 
+menu =
     do
         putStrLn "escolha a opção desejada:"
         putStrLn "1 - Jogar"
@@ -18,16 +27,18 @@ menu =
         opt <- readString
         hub opt
 
+
 hub :: String -> IO ()
 hub opt
-    |opt == "1" = initGame "teste" 0
-    -- |opt == "2" = estat
+    |opt == "1" = initGame selectRandomWord 0
+    |opt == "2" = printScore
     |opt == "3" = tuto
     |opt == "4" = exit
     |otherwise = menu
 
+
 tuto :: IO ()
-tuto = 
+tuto =
   do
     putStrLn "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
     putStrLn "Descubra a palavra certa em no maximo \ESC[31m6 \ESC[0mtentativas\n"
@@ -42,5 +53,5 @@ tuto =
     menu
 
 exit =
-  do 
+  do
     putStrLn "\n\n\nSaindo..."

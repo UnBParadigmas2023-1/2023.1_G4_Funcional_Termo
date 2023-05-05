@@ -19,48 +19,43 @@ import Validators (
     )
 
 initGame :: String -> Int -> IO ()
-initGame answer attempts = 
-    do 
-        putStrLn $ "Tentativa: [" ++ (show attempts) ++ "]"
-        putStrLn "Digite seu palpite (com 5 letras):"
+initGame answer attempts =
+    do
+        putStrLn $ "Tentativa: [" ++ show attempts ++ "]"
+        putStrLn "Digite uma palavra:"
         word <- readString
-        putStrLn "A palavra digitada foi:"
-        putStrLn word
 
-        putStrLn "A palavra digitada existe?"
         value <- validWord word
-        if value == True
-            then do 
-                putStrLn "Existe!"
+        if value
+            then do
+                putStr ""
             else do
-                putStrLn "Não existe!"
+                putStrLn "Palavra Invalida"
                 initGame answer (attempts + 0)
 
-        putStrLn "A palavra digitada tem o mesmo tamanho da palavra correta?"        
-        if isLengthCorrect word 
+
+        if isLengthCorrect word
             then do
-                putStrLn "Sim!"
+                putStr ""
             else do
-                putStrLn "A palavra digitada não possui o mesmo tamanho da palavra a ser adivinhada! Tente novamente."
+                putStrLn "Palavra Invalida"
                 initGame answer (attempts + 0)
 
         if isSameString word answer
-            then do
-                putStrLn "Acertou mizeravi!"
+            then putStrLn "Parabens você acertou!"
             else do
                 if isAnyWordInRightPlace word answer
                     then do
                         putStrLn "Há letras em comum nas mesmas posições!"
                         putStrLn $ "As letras iguais estão nas posições: " ++ show (obtainIndexesOfSameLetter word answer)
                         displayAnswerSituation answer (obtainIndexesOfSameLetter word answer)
-                    else do
-                        putStrLn "Não há letras em comum na mesma posição"
+                    else putStrLn "Não há letras em comum na mesma posição"
                         -- initGame answer (attempts + 1)
-                
+
                 if isAnyWordInWrongPlace word answer
                     then do
                         putStrLn "As letras em comum estão em posições diferentes!"
-                        putStrLn $ "As letras que estão no lugar errado são: " ++ (obtainLettersInWrongPlace word answer)
+                        putStrLn $ "As letras que estão no lugar errado são: " ++ obtainLettersInWrongPlace word answer
                         initGame answer (attempts + 1)
                     else do
                         putStrLn "Não há letras em comum"
@@ -72,7 +67,7 @@ initGame answer attempts =
 
 displayAnswerSituation :: String -> [Int] -> IO ()
 displayAnswerSituation answer indexes =
-  do 
+  do
     let chars = zip [0..] answer in
         mapM_ (printIndexedChar indexes) chars;
     putStrLn ""

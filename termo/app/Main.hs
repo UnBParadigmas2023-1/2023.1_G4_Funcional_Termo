@@ -1,12 +1,15 @@
 module Main (main) where
 
-import Lib()
-import Input(
-    readString
-    )
-import Menu(
-    menu
-    )
+import GameScore
+  ( createGameScore,
+  )
+import Input
+  ( readString,
+  )
+import Lib ()
+import Menu
+  ( menu,
+  )
 
 main :: IO ()
 main = do
@@ -26,5 +29,5 @@ main = do
   readString
 
   putStrLn "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
-
+  createGameScore
   menu
