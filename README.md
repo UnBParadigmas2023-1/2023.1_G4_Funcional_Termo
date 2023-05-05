@@ -28,9 +28,26 @@ Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcioname
 ## Instalação 
 **Linguagens**: Haskell<br>
 **Tecnologias**: Stack<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
-Insira um manual ou um script para auxiliar ainda mais.
-Gifs animados e outras ilustrações são bem-vindos!
+
+Para executar o projeto, basta entrar no diretório `termo` e executar o comando:
+
+```
+# entre no diretório
+cd termo
+
+# execute este comando
+make build-and-run
+```
+
+Este comando inicia o processo de criação da imagem usando o docker e logo após, inicia o processo de compilação da aplicação dentro da imagem e por fim, executa o projeto permitindo que o usuário interaja por linha de comando.
+
+Observe que o `make build-and-run` só precisa ser executado uma única vez para fins de criação da imagem, se você não modificar nada no projeto, nas próximas execuções, basta rodar o comando:
+
+```
+make up
+```
+
+Este comando pegará a imagem já criada e iniciar um novo container, anexando um terminal a ele, permitindo que você interaja com a linha de comando do container.
 
 ## Uso 
 Explique como usar seu projeto.
