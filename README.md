@@ -70,6 +70,8 @@ A opção 1 `Jogar` inicia o jogo com uma palavra escolhida aleatoriamente do ba
 
 A opção 2 `Estatisticas` abre a tela com informações sobre os jogos registrados, sendo elas, quantidade de jogos, quantidade de vitórias e pontos obtidos.
 
+![tela de estatiscas](./images/estatisticas.png) 
+
 A opção 4 `Sair` encerra o jogo.
 
 ![fim de jogo](./images/endGame.png)
@@ -95,7 +97,7 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 | Gabriel Mariano da Silva |  Desenvolvimento em par do módulo de estatísticas do jogo |  Excelente  |
 | João Lucas Pinto Vasconcelos | Desenvolvimento da inteface do usuário no jogo e integração dos módulos |  Excelente  |
 | Matheus Pimentel Leal | Desenvolvimento em par do módulo de seleção aleatória de palavras |  Excelente  |
-| Rafael Fernandes Amancio | N/A |  Nulo  |
+| Rafael Fernandes Amancio | Correção de bugs, melhoria visual e atualização do README |  Boa  |
 | Victor Eduardo Araújo Ribeiro | Desenvolvimento em par do módulo de validação de input |  Excelente  |
 
 ## Outros 
@@ -122,6 +124,10 @@ Dessa forma, vale ressaltar os seguintes pontos:
 
 ## Fontes
 - [Jogo Termo](https://term.ooo) 
+- [Stack](https://docs.haskellstack.org/en/stable/) 
+- [Cabal](https://www.haskell.org/cabal/)
+- [Docker](https://www.docker.com)
+
 
 Referencie, adequadamente, as referências utilizadas.
 Indique ainda sobre fontes de leitura complementares.
