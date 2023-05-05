@@ -2,6 +2,8 @@ module GameManager
     ( initGame
     ) where
 
+import System.Exit (exitWith, ExitCode(..))
+
 import Input(
     readString
     )
@@ -22,60 +24,50 @@ import Validators (
     subtractOne
     )
 
-
 initGame :: String -> Int -> IO ()
 initGame answer attempts =
     do
-        putStrLn $ "\nTentativa: [" ++ (show (attempts + 1)) ++ "]"
+        if attempts == 6 
+            then do
+                putStrLn "Você atingiu o limite de tentativas :("
+                putStrLn $ "A palavra correta era: " ++ answer
+
+                exitWith ExitSuccess
+            else do
+                putStrLn ""
+
+        putStrLn $ "\nTentativa: [" ++ (show (attempts + 1)) ++ " de 6]"
         putStrLn "Digite seu palpite:"
-        putStrLn "\n"
-        putStrLn "_ _ _ _ _"
-        putStrLn "\n"
+        putStrLn "\n\n"
 
         word <- readString
         
         -- value <- validWord word
 
-        -- if value == False
-        --     then do 
-        --         -- putStrLn "A palavra digita não existe! Tente novamente."
-        --         -- putStrLn "O número de tentativas não é alterado"
-        --         initGame answer (attempts + 0)
-        --     else do
-        --         putStrLn "A palavra digitada existe!"
-        
-        if (isLengthCorrect word) == False
+        if isLengthCorrect word
             then do
-                putStrLn "A palavra digitada não possui o mesmo tamanho da palavra a ser adivinhada! Tente novamente."
-                putStrLn "O número de tentativas não é alterado"
+                putStr ""
+            else do
+                putStrLn "Palavra Invalida"
                 initGame answer (attempts + 0)
-            else
-                putStrLn ""
 
         if isSameString word answer
             then do
-                putStrLn "Acertou mizeravi!"
+                putStrLn "Parabéns você acertou!"
+                saveGameScore 1 attempts
             else do
                 if isAnyWordInRightPlace word answer
                     then do
-                        putStrLn "Há letras em comum nas mesmas posições!"
-                        putStrLn $ "As letras iguais estão nas posições: " ++ show (obtainIndexesOfSameLetter word answer)
                         displayAnswerSituation word (obtainIndexesOfSameLetter word answer)
                     else do
-                        putStrLn "Não há letras em comum na mesma posição"
+                        putStrLn ""
                 
                 if null (sameLetterIndices word answer)
                     then do
-                        putStrLn "Não há letras em comum"
                         initGame answer (attempts + 1)
                     else do
-                        putStrLn "As letras em comum estão em posições diferentes!"
-                        
-                        putStrLn $ "sameLetterIndices " ++ show (sameLetterIndices word answer)
                         displayAnswerSituationWhenWrongPlace word (subtractOne (sameLetterIndices word answer))
                         initGame answer (attempts + 1)
-
-        saveGameScore 1 attempts
 
 
 displayAnswerSituation :: String -> [Int] -> IO ()
@@ -91,6 +83,7 @@ printIndexedChar indexes (i, c) =
     then do
         putStr "\ESC[92m"
         putChar c
+
         putStr "\ESC[0m "
     else do
         putChar c
