@@ -6,12 +6,9 @@ module Validators
       obtainIndexesOfSameLetter,
       obtainLettersInWrongPlace,
       validWord,
-<<<<<<< HEAD
       sameLetterIndices,
-      subtractOne
-=======
+      subtractOne,
       commonIndices
->>>>>>> main
     ) where
 
 import Data.List (intersect, nub)
