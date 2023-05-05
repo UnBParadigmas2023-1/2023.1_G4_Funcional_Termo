@@ -15,7 +15,8 @@ import Validators (
     isAnyWordInWrongPlace,
     obtainIndexesOfSameLetter,
     obtainLettersInWrongPlace,
-    validWord
+    validWord,
+    commonIndices
     )
 
 initGame :: String -> Int -> IO ()
@@ -29,6 +30,7 @@ initGame answer attempts =
 
         putStrLn "A palavra digitada existe?"
         value <- validWord word
+
         if value == True
             then do 
                 putStrLn "Existe!"
@@ -57,13 +59,13 @@ initGame answer attempts =
                         putStrLn "Não há letras em comum na mesma posição"
                         -- initGame answer (attempts + 1)
                 
-                if isAnyWordInWrongPlace word answer
+                if null (commonIndices word answer)
                     then do
-                        putStrLn "As letras em comum estão em posições diferentes!"
-                        putStrLn $ "As letras que estão no lugar errado são: " ++ (obtainLettersInWrongPlace word answer)
+                        putStrLn "Não há letras em comum"
                         initGame answer (attempts + 1)
                     else do
-                        putStrLn "Não há letras em comum"
+                        putStrLn "As letras em comum estão em posições diferentes!"
+                        putStrLn $ "As letras que estão no lugar errado são: " ++ (obtainLettersInWrongPlace (commonIndices word answer) answer)
                         initGame answer (attempts + 1)
 
         putStrLn "A resposta correta é:"
