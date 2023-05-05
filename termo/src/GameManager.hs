@@ -45,7 +45,6 @@ initGame answer attempts =
 
                 if isLengthCorrect word
                     then do
-                        putStr ""
                         if isSameString word answer
                             then do
                                 putStrLn "Parabéns você acertou!"
