@@ -28,6 +28,7 @@ Também foi criado um tutorial dentro do jogo, ensinando como se joga.
 
 ## Screenshots
 ![inicio do jogo](./images/logo.png)
+
 Logo do jogo ao iniciar a aplicação.
 
 
@@ -129,5 +130,3 @@ Dessa forma, vale ressaltar os seguintes pontos:
 - [Docker](https://www.docker.com)
 
 
-Referencie, adequadamente, as referências utilizadas.
-Indique ainda sobre fontes de leitura complementares.
