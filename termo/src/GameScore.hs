@@ -22,7 +22,7 @@ saveGameScore victory nAttempts = do
 
   content <- readScoreList fileName
 
-  let points = 7000 - (1000 * nAttempts)
+  let points = 6000 - (1000 * nAttempts)
   let newContent = zipWith (+) content [1, victory, points]
   let newContentStr = listIntToString newContent
 

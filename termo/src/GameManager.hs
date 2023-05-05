@@ -23,6 +23,7 @@ import Validators (
     sameLetterIndices,
     subtractOne
     )
+import Control.Monad (Monad(return))
 
 initGame :: String -> Int -> IO ()
 initGame answer attempts =
@@ -31,8 +32,8 @@ initGame answer attempts =
             then do
                 putStrLn "Você atingiu o limite de tentativas :("
                 putStrLn $ "A palavra correta era: " ++ answer
-
-                exitWith ExitSuccess
+                saveGameScore 0 attempts
+                return()
             else do
                 putStrLn ""
 

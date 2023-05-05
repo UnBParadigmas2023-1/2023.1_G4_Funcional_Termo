@@ -22,15 +22,12 @@ menu :: IO ()
 menu =
     do
         putStrLn "\ESC[2J"
-        putStrLn "    ███        ▄████████    ▄████████   ▄▄▄▄███▄▄▄▄    ▄██████▄  "
-        putStrLn "▀█████████▄   ███    ███   ███    ███ ▄██▀▀▀███▀▀▀██▄ ███    ███ "
-        putStrLn "   ▀███▀▀██   ███    █▀    ███    ███ ███   ███   ███ ███    ███ "
-        putStrLn "    ███   ▀  ▄███▄▄▄      ▄███▄▄▄▄██▀ ███   ███   ███ ███    ███ "
-        putStrLn "    ███     ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ███   ███   ███ ███    ███ "
-        putStrLn "    ███       ███    █▄  ▀███████████ ███   ███   ███ ███    ███ "
-        putStrLn "    ███       ███    ███   ███    ███ ███   ███   ███ ███    ███ "
-        putStrLn "   ▄████▀     ██████████   ███    ███  ▀█   ███   █▀   ▀██████▀  "
-        putStrLn "                           ███    ███                            "
+        putStrLn "\ESC[92m████████╗\ESC[0m███████╗\ESC[91m██████╗ \ESC[92m███╗   ███╗ \ESC[0m██████╗ "
+        putStrLn "\ESC[92m╚══██╔══╝\ESC[0m██╔════╝\ESC[91m██╔══██╗\ESC[92m████╗ ████║\ESC[0m██╔═══██╗"
+        putStrLn "\ESC[92m   ██║   \ESC[0m█████╗  \ESC[91m██████╔╝\ESC[92m██╔████╔██║\ESC[0m██║   ██║"
+        putStrLn "\ESC[92m   ██║   \ESC[0m██╔══╝  \ESC[91m██╔══██╗\ESC[92m██║╚██╔╝██║\ESC[0m██║   ██║"
+        putStrLn "\ESC[92m   ██║   \ESC[0m███████╗\ESC[91m██║  ██║\ESC[92m██║ ╚═╝ ██║\ESC[0m╚██████╔╝"
+        putStrLn "\ESC[92m   ╚═╝   \ESC[0m╚══════╝\ESC[91m╚═╝  ╚═╝\ESC[92m╚═╝     ╚═╝ \ESC[0m╚═════╝ "
         putStrLn"\n\n"
 
         putStrLn "escolha a opção desejada:"
@@ -48,13 +45,13 @@ hub opt
       putStrLn "\ESC[2J"
       word <- selectRandomWord
       initGame word 0
-      putStrLn "pressione enter para continuar..."
+      putStrLn "Pressione enter para retornar ao Menu..."
       readString
       menu
     |opt == "2" = do
                     putStrLn "\ESC[2J"
                     printCasualScore
-                    putStrLn "pressione enter para continuar..."
+                    putStrLn "Pressione enter para retornar ao Menu..."
                     readString
                     menu
     |opt == "3" = tuto
@@ -75,7 +72,7 @@ tuto =
     putStrLn "\n\tPUL\ESC[90mG\ESC[0mA\n"
     putStrLn "A letra \ESC[90mG \ESC[0mnão faz parte da palavra"
     putStrLn "\nAs palavras podem ter letras repetidas\n"
-    putStrLn "pressione enter para continuar..."
+    putStrLn "Pressione enter para retornar ao Menu..."
     readString
     menu
 exit :: IO ()
