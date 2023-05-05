@@ -46,27 +46,28 @@ initGame answer attempts =
                 if isLengthCorrect word
                     then do
                         putStr ""
+                        if isSameString word answer
+                            then do
+                                putStrLn "Parabéns você acertou!"
+                                saveGameScore 1 attempts
+                            else do
+                                if isAnyWordInRightPlace word answer
+                                    then do
+                                        displayAnswerSituation word (obtainIndexesOfSameLetter word answer)
+                                    else do
+                                        putStrLn ""
+                                
+                                if null (sameLetterIndices word answer)
+                                    then do
+                                        initGame answer (attempts + 1)
+                                    else do
+                                        displayAnswerSituationWhenWrongPlace word (subtractOne (sameLetterIndices word answer))
+                                        initGame answer (attempts + 1)
                     else do
                         putStrLn "Palavra com tamanho Invalido, deve ter exatamente \ESC[91m5 \ESC[0mletras"
                         initGame answer (attempts + 0)
 
-                if isSameString word answer
-                    then do
-                        putStrLn "Parabéns você acertou!"
-                        saveGameScore 1 attempts
-                    else do
-                        if isAnyWordInRightPlace word answer
-                            then do
-                                displayAnswerSituation word (obtainIndexesOfSameLetter word answer)
-                            else do
-                                putStrLn ""
-                        
-                        if null (sameLetterIndices word answer)
-                            then do
-                                initGame answer (attempts + 1)
-                            else do
-                                displayAnswerSituationWhenWrongPlace word (subtractOne (sameLetterIndices word answer))
-                                initGame answer (attempts + 1)
+                
                 
 
 
