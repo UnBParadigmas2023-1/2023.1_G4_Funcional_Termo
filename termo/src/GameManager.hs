@@ -30,45 +30,45 @@ initGame answer attempts =
     do
         if attempts == 6 
             then do
-                putStrLn "Você atingiu o limite de tentativas :("
+                putStrLn "\n\nVocê atingiu o limite de tentativas :("
                 putStrLn $ "A palavra correta era: " ++ answer
                 saveGameScore 0 attempts
-                return()
+                -- return()
             else do
-                putStrLn ""
+                putStrLn $ "\nTentativa: [" ++ (show (attempts + 1)) ++ " de 6]"
+                putStrLn "Digite seu palpite:"
+                putStrLn "\n\n"
 
-        putStrLn $ "\nTentativa: [" ++ (show (attempts + 1)) ++ " de 6]"
-        putStrLn "Digite seu palpite:"
-        putStrLn "\n\n"
-
-        word <- readString
-        
-        -- value <- validWord word
-
-        if isLengthCorrect word
-            then do
-                putStr ""
-            else do
-                putStrLn "Palavra Invalida"
-                initGame answer (attempts + 0)
-
-        if isSameString word answer
-            then do
-                putStrLn "Parabéns você acertou!"
-                saveGameScore 1 attempts
-            else do
-                if isAnyWordInRightPlace word answer
-                    then do
-                        displayAnswerSituation word (obtainIndexesOfSameLetter word answer)
-                    else do
-                        putStrLn ""
+                word <- readString
                 
-                if null (sameLetterIndices word answer)
+                -- value <- validWord word
+
+                if isLengthCorrect word
                     then do
-                        initGame answer (attempts + 1)
+                        putStr ""
                     else do
-                        displayAnswerSituationWhenWrongPlace word (subtractOne (sameLetterIndices word answer))
-                        initGame answer (attempts + 1)
+                        putStrLn "Palavra Invalida"
+                        initGame answer (attempts + 0)
+
+                if isSameString word answer
+                    then do
+                        putStrLn "Parabéns você acertou!"
+                        saveGameScore 1 attempts
+                    else do
+                        if isAnyWordInRightPlace word answer
+                            then do
+                                displayAnswerSituation word (obtainIndexesOfSameLetter word answer)
+                            else do
+                                putStrLn ""
+                        
+                        if null (sameLetterIndices word answer)
+                            then do
+                                initGame answer (attempts + 1)
+                            else do
+                                displayAnswerSituationWhenWrongPlace word (subtractOne (sameLetterIndices word answer))
+                                initGame answer (attempts + 1)
+                
+
 
 
 displayAnswerSituation :: String -> [Int] -> IO ()
