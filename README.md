@@ -104,6 +104,8 @@ Foi um trabalho muito interessante de ser feito, necessitando de um olhar difere
 
 Fazer um jogo sempre é um método bom de se exercitar um aprendizado novo, visto que se torna algo mais lúdico, entretanto, é notável que apenas esse projeto não é o suficiente para se masterizar a linguagem, muito menos a forma de se utilizar o paradigma.
 
+Para que haja a verificação de existência da palavra, no módulo de validação de input, é usada uma API chamada [dicio-api](https://github.com/ThiagoNelsi/dicio-api), a qual disponibiliza o [esse link](dicio-api-ten.vercel.app/v2/palavra) para requisições que retornam o significado das palavras passadas no caminho, e caso o resultado seja de que não haja significado tratamos como a palavra não existe. Para fazer a requisição usamos uma dependência chamada *http-conduit* que nos disponibiliza o módulo *Network.HTTP.Simple* que possui as funções necessárias para que possamos realizar as requisições.
+
 Dessa forma, vale ressaltar os seguintes pontos:
 - Lições aprendidas: 
     - Aprendemos a base do paradigma funcional e que, para conseguirmos usa-lo bem, devemos deixar para trás o pensamento imperativo e pensar de forma mais matemática/funcional.
@@ -119,5 +121,7 @@ Dessa forma, vale ressaltar os seguintes pontos:
 
 
 ## Fontes
+- [Jogo Termo](https://term.ooo) 
+
 Referencie, adequadamente, as referências utilizadas.
 Indique ainda sobre fontes de leitura complementares.
