@@ -34,10 +34,16 @@ menu =
 hub :: String -> IO ()
 hub opt
     |opt == "1" = do
+      putStrLn "\ESC[2J"
       word <- selectRandomWord
       initGame word 0
       menu
-    |opt == "2" = printCasualScore 
+    |opt == "2" = do
+                    putStrLn "\ESC[2J"
+                    printCasualScore
+                    putStrLn "pressione enter para continuar..."
+                    readString
+                    menu
     |opt == "3" = tuto
     |opt == "4" = exit
     |otherwise = menu
@@ -59,7 +65,7 @@ tuto =
     putStrLn "pressione enter para continuar..."
     readString
     menu
-
+exit :: IO ()
 exit =
   do
     putStrLn "\ESC[2J"
