@@ -1,4 +1,7 @@
-module RandomWordGenerator (wordList, selectRandomWord) where
+module RandomWordGenerator (
+    wordList,
+    selectRandomWord
+  ) where
 
 import Data.Modular.Arithmetic
 import System.Random

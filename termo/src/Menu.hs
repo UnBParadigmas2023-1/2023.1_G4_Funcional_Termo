@@ -30,7 +30,9 @@ menu =
 
 hub :: String -> IO ()
 hub opt
-    |opt == "1" = initGame selectRandomWord 0
+    |opt == "1" = do
+      word <- selectRandomWord
+      initGame word 0
     |opt == "2" = printScore
     |opt == "3" = tuto
     |opt == "4" = exit
