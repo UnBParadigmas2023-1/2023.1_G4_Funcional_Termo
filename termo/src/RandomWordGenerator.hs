@@ -1,4 +1,4 @@
-module RandomWordGenerator (selectWord) where
+module RandomWordGenerator (wordList) where
 
 import System.Random
 

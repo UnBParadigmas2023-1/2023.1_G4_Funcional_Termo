@@ -26,20 +26,23 @@ source-repository head
 library
   exposed-modules:
       GameManager
+      GameScore
       Input
       Lib
-      Validators
       Menu
+      RandomWordGenerator
+      Validators
   other-modules:
       Paths_termo
   hs-source-dirs:
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
-      base >=4.7 && <5,
-      random,
-      http-conduit,
-      bytestring 
+      base >=4.7 && <5
+    , bytestring
+    , directory
+    , http-conduit
+    , random
   default-language: Haskell2010
 
 executable termo-exe
@@ -51,6 +54,10 @@ executable termo-exe
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , bytestring
+    , directory
+    , http-conduit
+    , random
     , termo
   default-language: Haskell2010
 
@@ -64,5 +71,9 @@ test-suite termo-test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , bytestring
+    , directory
+    , http-conduit
+    , random
     , termo
   default-language: Haskell2010
