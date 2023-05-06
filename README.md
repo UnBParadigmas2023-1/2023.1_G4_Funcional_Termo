@@ -58,15 +58,13 @@ Este comando pegará a imagem já criada e iniciar um novo container, anexando u
 
 Outra forma de se executar o projeto é através do [*Stack*](https://docs.haskellstack.org/en/stable/install_and_upgrade/), no qual é possível garantir a persistência dos arquivos salvos durante a execução do jogo. Para isso, basta:
 
-# executar o comando
-
 ```
+# execute o comando
+
 stack build
-```
 
-# executar o projeto
+# execute o projeto
 
-```
 stack run
 ```
 
@@ -92,14 +90,8 @@ A opção 4 `Sair` encerra o jogo.
 ![fim de jogo](./images/endGame.png)
 
 ## Vídeo
-Adicione 1 ou mais vídeos com a execução do projeto.
-Procure: 
-(i) Introduzir o projeto;
-(ii) Mostrar passo a passo o código, explicando-o, e deixando claro o que é de terceiros, e o que é contribuição real da equipe;
-(iii) Apresentar particularidades do Paradigma, da Linguagem, e das Tecnologias, e
-(iV) Apresentar lições aprendidas, contribuições, pendências, e ideias para trabalhos futuros.
-OBS: TODOS DEVEM PARTICIPAR, CONFERINDO PONTOS DE VISTA.
-TEMPO: +/- 15min
+
+O vídeo dos integrantes do grupo apresentando o projeto desenvolvido e demais informações está disponível [[AQUI]](https://youtu.be/gdaKG13sUuU)
 
 ## Participações
 Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
