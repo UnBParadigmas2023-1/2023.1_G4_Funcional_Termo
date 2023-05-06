@@ -1,7 +1,7 @@
 # Termo
 
 **Disciplina**: FGA0210 - PARADIGMAS DE PROGRAMAÇÃO - T01 <br>
-**Nro do Grupo (de acordo com a Planilha de Divisão dos Grupos)**: 4<br>
+**Nro do Grupo**: 4<br>
 **Paradigma**: Funcional<br>
 
 ## Alunos
@@ -55,6 +55,20 @@ make up
 ```
 
 Este comando pegará a imagem já criada e iniciar um novo container, anexando um terminal a ele, permitindo que você interaja com a linha de comando do container.
+
+Outra forma de se executar o projeto é através do [*Stack*](https://docs.haskellstack.org/en/stable/install_and_upgrade/), no qual é possível garantir a persistência dos arquivos salvos durante a execução do jogo. Para isso, basta:
+
+# executar o comando
+
+```
+stack build
+```
+
+# executar o projeto
+
+```
+stack run
+```
 
 ## Uso 
 Após as execuções dos comandos acima, o jogo iniciará com a tela inicial, mostrando o nome do jogo e requisitando que pressione a tecla `enter`, ativando o menu principal da aplicação.
